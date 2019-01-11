@@ -12,7 +12,7 @@
       <div class="row">
         <div class="col-6">
           <div class="card" variant="dark">
-            <div class="card-header">Dscan/FleetScan/LocalScan</div>
+            <div class="card-header">Dscan/FleetScan/LocalScan(目前仅支持DScan)</div>
             <div class="card-body">
               <form>
                 <div class="row">
