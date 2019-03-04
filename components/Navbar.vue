@@ -5,7 +5,7 @@
       <div id="navbarSupportedContent" class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">首页</a>
+            <nuxt-link class="nav-link" to="/">首页</nuxt-link>
           </li>
           <li class="nav-item">
             <nuxt-link class="nav-link" to="/scan">扫描工具</nuxt-link>

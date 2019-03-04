@@ -3,7 +3,7 @@
     <Navbar/>
     <nuxt/>
     <!-- Footer -->
-    <footer class="fixed-bottom font-small blue">
+    <footer class="absolute-bottom font-small blue">
       <!-- Copyright -->
       <div class="footer-copyright text-center py-3">
         © 2018 Bug report:
