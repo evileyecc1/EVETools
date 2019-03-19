@@ -48,7 +48,7 @@
 </style>
 <script>
 import bAlert from 'bootstrap-vue/es/components/alert/alert'
-import { baseUrl } from '~/utils/API'
+import { getBaseUrl } from '~/utils/API'
 export default {
   components: { bAlert },
   data() {
@@ -68,11 +68,11 @@ export default {
   methods: {
     submit_scan() {
       this.$axios
-        .post(baseUrl + '/scan', { scan: this.$data.scan_result })
+        .post(getBaseUrl() + '/scan', { scan: this.$data.scan_result })
         .then(result => {
           this.$router.push({
-            name: 'scan-id',
-            params: { id: result.data.scan_result_id }
+            name: 'scan-' + result.data.scan_type + '-id',
+            params: { id: result.data.scan_id }
           })
         })
         .catch(err => {

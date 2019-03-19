@@ -4,11 +4,18 @@
       <div class="row">
         <div class="col-12 col-lg-4">
           <h1 class="text-info">扫描结果</h1>
-          <Ships :ships="types" :translation="translation"/>
+          <Ships :ships="types" :translation="translation" />
         </div>
         <div class="col-12 col-lg-4">
           <h1 class="text-success">舰船分类</h1>
-          <Groups :groups="groups" :translation="translation"/>
+          <Groups :groups="groups" :translation="translation" />
+          <h1 class="text-info mt-3">所在星系</h1>
+          <ul class="list-group">
+            <li v-for="(value,key) in system_result" :key="key" class="list-group-item d-flex justify-content-between align-items-center text-success">
+              {{ key }}
+              <span class="badge badge-primary badge-dark">{{ value }}</span>
+            </li>
+          </ul>
         </div>
         <div class="col-12 col-lg-4">
           <fast-copy />
@@ -29,15 +36,24 @@ import Ships from '~/components/Scan/Ships'
 import Groups from '~/components/Scan/Groups'
 import FastCopy from '~/components/FastCopy'
 export default {
-  components: { Ships, Groups, FastCopy },
+  components: {
+    Ships,
+    Groups,
+    FastCopy
+  },
   asyncData({ params, error }) {
     return axios
       .get(getBaseUrl() + `/scan/${params.id}`)
       .then(res => {
-        return { ...res.data }
+        return {
+          ...res.data
+        }
       })
       .catch(e => {
-        error({ statusCode: 404, message: '无法找到此扫描结果' })
+        error({
+          statusCode: 404,
+          message: '无法找到此扫描结果'
+        })
       })
   },
   data() {},

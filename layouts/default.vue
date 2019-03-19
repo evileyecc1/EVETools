@@ -8,7 +8,7 @@
       <div class="footer-copyright text-center py-3">
         © 2018 Bug report:
         <a href="mailto:admin@eve-info.net">Kernel Cris</a>
-        <p>EVE Online and the EVE logo are the registered trademarks of CCP hf. All rights are reserved worldwide. All other trademarks are the property of their respective owners. EVE Online, the EVE logo, EVE and all associated logos and designs are the intellectual property of CCP hf. All artwork, screenshots, characters, vehicles, storylines, world facts or other recognizable features of the intellectual property relating to these trademarks are likewise the intellectual property of CCP hf. CCP hf. has granted permission to eve-info.net to use EVE Online and all associated logos and designs for promotional and information purposes on its website but does not endorse, and is not in any way affiliated with, eve-info.net. CCP is in no way responsible for the content on or functioning of this website, nor can it be liable for any damage arising from the use of this website.</p>
+        <p>All <nuxt-link to="/legal">EVE related materials</nuxt-link> are property of CCP Games / <nuxt-link to="/legal">CCP Copyright Notice </nuxt-link> </p>
       </div>
       <!-- Copyright -->
     </footer>
