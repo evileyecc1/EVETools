@@ -11,7 +11,7 @@
           <Groups :groups="groups" :translation="translation" />
           <h1 class="text-info mt-3">所在星系</h1>
           <ul class="list-group">
-            <li v-for="(value,key) in system_result" :key="key" class="list-group-item d-flex justify-content-between align-items-center text-success">
+            <li v-for="(value,key) in systems" :key="key" class="list-group-item d-flex justify-content-between align-items-center text-success">
               {{ key }}
               <span class="badge badge-primary badge-dark">{{ value }}</span>
             </li>
