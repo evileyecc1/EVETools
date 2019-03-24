@@ -3,7 +3,10 @@
     <li
       v-for="item in ships_order"
       :key="item.id"
+      :id="item.groupID"
+      :class="{'bg-white':isHighLight(item.groupID)}"
       class="list-group-item d-flex justify-content-between align-items-center text-info"
+      @click="highLight"
     >
       {{ getTrans(item.id,'zh') }} / {{ getTrans(item.id,'en') }}
       <span
@@ -23,6 +26,12 @@ export default {
     },
     translation: {
       type: Object,
+      default() {
+        return []
+      }
+    },
+    highlightgroup: {
+      type: Array,
       default() {
         return []
       }
@@ -48,6 +57,12 @@ export default {
         return this.translation.type[typeID].en
       }
       return 'Undefined Item'
+    },
+    highLight(event) {
+      this.$emit('highlight', event.target.id)
+    },
+    isHighLight(groupID) {
+      return this.highlightgroup.includes(groupID.toString())
     }
   }
 }

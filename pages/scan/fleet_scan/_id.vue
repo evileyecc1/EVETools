@@ -4,21 +4,30 @@
       <div class="row">
         <div class="col-12 col-lg-4">
           <h1 class="text-info">扫描结果</h1>
-          <Ships :ships="types" :translation="translation" />
+          <Ships :ships="types" :translation="translation" :highlightgroup="highLightGroupIDs" @highlight="highLightGroup"/>
         </div>
         <div class="col-12 col-lg-4">
           <h1 class="text-success">舰船分类</h1>
-          <Groups :groups="groups" :translation="translation" />
+          <Groups
+            :groups="groups"
+            :translation="translation"
+            :highlightgroup="highLightGroupIDs"
+            @highlight="highLightGroup"
+          />
+        </div>
+        <div class="col-12 col-lg-4">
+          <fast-copy/>
           <h1 class="text-info mt-3">所在星系</h1>
           <ul class="list-group">
-            <li v-for="(value,key) in systems" :key="key" class="list-group-item d-flex justify-content-between align-items-center text-success">
+            <li
+              v-for="(value,key) in systems"
+              :key="key"
+              class="list-group-item d-flex justify-content-between align-items-center text-info"
+            >
               {{ key }}
               <span class="badge badge-primary badge-dark">{{ value }}</span>
             </li>
           </ul>
-        </div>
-        <div class="col-12 col-lg-4">
-          <fast-copy />
         </div>
       </div>
     </div>
@@ -56,8 +65,23 @@ export default {
         })
       })
   },
-  data() {},
+  data() {
+    return {
+      highLightGroupIDs: []
+    }
+  },
   computed: {},
-  methods: {}
+  methods: {
+    highLightGroup(groupID) {
+      if (!this.highLightGroupIDs.includes(groupID)) {
+        this.highLightGroupIDs.push(groupID)
+      } else {
+        this.highLightGroupIDs.splice(
+          this.highLightGroupIDs.indexOf(groupID),
+          1
+        )
+      }
+    }
+  }
 }
 </script>

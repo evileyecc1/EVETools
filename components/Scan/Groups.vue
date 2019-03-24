@@ -2,8 +2,11 @@
   <ul class="list-group">
     <li
       v-for="group in groups_order"
-      :key="group[1]"
+      :key="group[0]"
+      :id="group[0]"
+      :class="{'bg-white':isHighLight(group[0])}"
       class="list-group-item d-flex justify-content-between align-items-center text-success"
+      @click="highLight"
     >
       {{ getTrans(group[0],'zh') }} / {{ getTrans(group[0],'en') }}
       <span
@@ -23,6 +26,12 @@ export default {
     },
     translation: {
       type: Object,
+      default() {
+        return []
+      }
+    },
+    highlightgroup: {
+      type: Array,
       default() {
         return []
       }
@@ -48,6 +57,12 @@ export default {
         return this.translation.group[groupID].en
       }
       return 'Undefined Item'
+    },
+    highLight(event) {
+      this.$emit('highlight', event.target.id)
+    },
+    isHighLight(groupID) {
+      return this.highlightgroup.includes(groupID)
     }
   }
 }

@@ -33,6 +33,7 @@
               >打开舰队左上角的菜单, 显示舰队编制, 然后猛敲 CTRL + A, 再敲 CTRL + C, 最后在这个页面的左边框框用力敲 CTRL + V .</p>
 
               <h4 class="card-title mt-3 text-info">更新日志</h4>
+              <p class="card-text">2019.3.24 可以点击扫描结果高亮Group啦，针对dscan和fleetscan</p>
               <p class="card-text">2019.3.19 LocalScan(Beta)上线，修复bug</p>
               <p class="card-text">2019.1.15 FleetScan上线</p>
             </div>

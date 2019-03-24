@@ -4,14 +4,24 @@
       <div class="row">
         <div class="col-12 col-lg-4">
           <h1 class="text-info">扫描结果</h1>
-          <Ships :ships="types" :translation="translation"/>
+          <Ships
+            :ships="types"
+            :translation="translation"
+            :highlightgroup="highLightGroupIDs"
+            @highlight="highLightGroup"
+          />
         </div>
         <div class="col-12 col-lg-4">
           <h1 class="text-success">舰船分类</h1>
-          <Groups :groups="groups" :translation="translation"/>
+          <Groups
+            :groups="groups"
+            :translation="translation"
+            :highlightgroup="highLightGroupIDs"
+            @highlight="highLightGroup"
+          />
         </div>
         <div class="col-12 col-lg-4">
-          <fast-copy />
+          <fast-copy/>
         </div>
       </div>
     </div>
@@ -40,8 +50,23 @@ export default {
         error({ statusCode: 404, message: '无法找到此扫描结果' })
       })
   },
-  data() {},
+  data() {
+    return {
+      highLightGroupIDs: []
+    }
+  },
   computed: {},
-  methods: {}
+  methods: {
+    highLightGroup(groupID) {
+      if (!this.highLightGroupIDs.includes(groupID)) {
+        this.highLightGroupIDs.push(groupID)
+      } else {
+        this.highLightGroupIDs.splice(
+          this.highLightGroupIDs.indexOf(groupID),
+          1
+        )
+      }
+    }
+  }
 }
 </script>
